@@ -53,6 +53,11 @@ pipeline {
                 sh " mvn clean install"
             }
         }
+        stage('Build') {
+            steps {
+                sh "mvn clean package"
+            }
+        }
        /* 
         stage("Docker Build & Push"){
             steps{
