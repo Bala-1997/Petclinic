@@ -5,12 +5,12 @@ pipeline {
         jdk 'jdk11'
         maven 'maven'
     }
-    /*
+    */
     environment {
         SCANNER_HOME=tool 'sonar-scanner'
     }
-    */
-    stages {
+    /*
+    stages{
         
         stage("Git Checkout"){
             steps{
