@@ -3,18 +3,18 @@ pipeline {
     
     tools{
         jdk 'jdk11'
-        maven 'maven3'
+        maven 'maven'
     }
-    
+    /*
     environment {
         SCANNER_HOME=tool 'sonar-scanner'
     }
-    
+    */
     stages{
         
         stage("Git Checkout"){
             steps{
-                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/jaiswaladi246/Petclinic.git'
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/Bala-1997/Petclinic.git'
             }
         }
         
@@ -29,7 +29,7 @@ pipeline {
                 sh "mvn test"
             }
         }
-        
+        /*
         stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar-server') {
@@ -47,13 +47,13 @@ pipeline {
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
-        
+        */
          stage("Build"){
             steps{
                 sh " mvn clean install"
             }
         }
-        
+       /* 
         stage("Docker Build & Push"){
             steps{
                 script{
@@ -72,7 +72,7 @@ pipeline {
                 sh " trivy image adijaiswal/pet-clinic123:latest"
             }
         }
-        
+       */ 
         stage("Deploy To Tomcat"){
             steps{
                 sh "cp  /var/lib/jenkins/workspace/CI-CD/target/petclinic.war /opt/apache-tomcat-9.0.65/webapps/ "
