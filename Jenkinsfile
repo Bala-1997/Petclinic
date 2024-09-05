@@ -5,11 +5,11 @@ pipeline {
         jdk 'jdk11'
         maven 'maven'
     }
-    */
+    /*
     environment {
         SCANNER_HOME=tool 'sonar-scanner'
     }
-    /*
+    */
     stages{
         
         stage("Git Checkout"){
@@ -78,6 +78,7 @@ pipeline {
             }
         }
        */ 
+        
         stage("Deploy To Tomcat"){
             steps{
                 sh "cp  /var/lib/jenkins/workspace/CI-CD/target/petclinic.war /opt/apache-tomcat-9.0.65/webapps/ "
