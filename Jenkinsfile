@@ -10,8 +10,8 @@ pipeline {
         SCANNER_HOME=tool 'sonar-scanner'
     }
     */
+    
     stages{
-        
         stage("Git Checkout"){
             steps{
                 git branch: 'branch1', changelog: false, poll: false, url: 'https://github.com/Bala-1997/Petclinic.git'
