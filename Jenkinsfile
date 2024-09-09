@@ -21,13 +21,13 @@ pipeline {
         
         stage("Compile"){
             steps{
-                sh "mvn clean compile"
+                sh "JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ mvn clean compile"
             }
         }
         
          stage("Test Cases"){
             steps{
-                sh "mvn test"
+                sh "JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ mvn test"
             }
         }
         /*
@@ -52,7 +52,7 @@ pipeline {
        
         stage("Build") {
             steps {
-                sh "mvn clean package"
+                sh "JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ mvn clean package"
             }
         }
        /* 
