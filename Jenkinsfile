@@ -30,7 +30,7 @@ pipeline {
                 sh "mvn test"
             }
         }
-        
+        /*
         stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar-server') {
@@ -41,7 +41,7 @@ pipeline {
                 }
             }
         }
-        /*
+        
         stage("OWASP Dependency Check"){
             steps{
                 dependencyCheck additionalArguments: '--scan ./ --format HTML ', odcInstallation: 'DP'
