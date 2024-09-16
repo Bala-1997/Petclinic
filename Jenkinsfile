@@ -33,12 +33,9 @@ pipeline {
         
         stage("Sonarqube Analysis "){
             steps{
-                withSonarQubeEnv('sonar-server') {
                     sh ''' JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ /opt/sonar-scanner-4.8.1.3023-linux/conf/sonar-scanner.properties -Dsonar.projectName=Petclinic \
                     -Dsonar.java.binaries=. \
                     -Dsonar.projectKey=Petclinic '''
-    
-                }
             }
         }
         /*
