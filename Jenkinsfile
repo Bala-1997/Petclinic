@@ -5,11 +5,11 @@ pipeline {
         jdk 'jdk11'
         maven 'maven'
     }
-    /*
+    
     environment {
         SCANNER_HOME=tool 'sonar-scanner'
     }
-    */
+    
     
     stages{
         
@@ -30,18 +30,18 @@ pipeline {
                 sh "JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ mvn test"
             }
         }
-        /*
+        
         stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
+                    sh ''' JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
                     -Dsonar.java.binaries=. \
                     -Dsonar.projectKey=Petclinic '''
     
                 }
             }
         }
-        
+        /*
         stage("OWASP Dependency Check"){
             steps{
                 dependencyCheck additionalArguments: '--scan ./ --format HTML ', odcInstallation: 'DP'
