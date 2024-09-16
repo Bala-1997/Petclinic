@@ -7,7 +7,7 @@ pipeline {
     }
     
     environment {
-        SCANNER_HOME=tool 'sonar-scanner'
+        SCANNER_HOME=/opt/sonar-scanner-4.8.1.3023-linux/conf/sonar-scanner
     }
     
     
