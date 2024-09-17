@@ -36,7 +36,7 @@ pipeline {
                 withSonarQubeEnv('sonar-server') {
                     sh ''' JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
                     -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=Petclinic '''
+                    -Dsonar.projectKey=Petclinic -Dsonar.login=admin -Dsonar.password=admin@123 '''
     
                 }
             }
