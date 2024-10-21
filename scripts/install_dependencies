@@ -39,7 +39,7 @@ tar xzf $TOMCAT7_CORE_TAR_FILENAME
 cp -r /tmp/$TOMCAT7_CORE_UNPACKED_DIRNAME/* $CATALINA_HOME
 
 # Install Java if not yet installed
-{ which java; } || { apt install openjdk-11-jre-headless; }
+{ which java; } || { apt install openjdk-11-jre-headless -Y; }
 
 # Create the service init.d script
 cat > /etc/init.d/tomcat9 <<'EOF'
