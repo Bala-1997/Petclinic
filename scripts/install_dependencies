@@ -2,8 +2,8 @@
 
 set -e
 
-CATALINA_HOME=/usr/share/tomcat7-codedeploy
-TOMCAT_VERSION=7.0.77
+CATALINA_HOME=/usr/share/tomcat9-codedeploy
+TOMCAT_VERSION=9.0.67
 
 # Tar file name
 TOMCAT7_CORE_TAR_FILENAME="tomcat-$TOMCAT_VERSION.tar.gz"
@@ -39,16 +39,16 @@ tar xzf $TOMCAT7_CORE_TAR_FILENAME
 cp -r /tmp/$TOMCAT7_CORE_UNPACKED_DIRNAME/* $CATALINA_HOME
 
 # Install Java if not yet installed
-{ which java; } || { apt install java; }
+{ which java; } || { apt install openjdk-11-jre-headless; }
 
 # Create the service init.d script
-cat > /etc/init.d/tomcat7 <<'EOF'
+cat > /etc/init.d/tomcat9 <<'EOF'
 #!/bin/bash
 # description: Tomcat7 Start Stop Restart
 # processname: tomcat7
 PATH=$JAVA_HOME/bin:$PATH
 export PATH
-CATALINA_HOME='/usr/share/tomcat7-codedeploy'
+CATALINA_HOME='/usr/share/tomcat9-codedeploy'
 
 case $1 in
 start)
@@ -66,5 +66,5 @@ exit 0
 EOF
 
 # Change permission mode for the service script
-chmod 755 /etc/init.d/tomcat7
+chmod 755 /etc/init.d/tomcat9
 
